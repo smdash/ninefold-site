@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://smdash.github.io/ninefold-site/sitemap.xml
