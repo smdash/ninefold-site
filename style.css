@@ -1,0 +1,63 @@
+/* Ninefold site. Ledger paper and blue-black ink, like the app. Pen blue for links, oxblood for the stamp. */
+:root {
+  color-scheme: light dark;
+  --ground: #ECEEE9;
+  --surface: #F8F9F6;
+  --ink: #1B2026;
+  --muted: #5D656D;
+  --line: #CDD3CC;
+  --pen: #234A9C;
+  --stamp: #9B2C3E;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "URW Palladio L", P052, Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #111518; --surface: #191E22; --ink: #E7EAE5; --muted: #99A1A7; --line: #2F363C; --pen: #8FB0F5; --stamp: #E58599; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 18px/1.65 var(--serif);
+  -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 680px; margin: 0 auto; padding: 40px 16px 72px; }
+
+header.site { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); margin-bottom: 34px; }
+.mast { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 700; font-size: 30px; line-height: 1; }
+.mast svg { width: 30px; height: 30px; flex: none; }
+nav.site { margin-left: auto; display: flex; gap: 18px; font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em; }
+nav.site a { color: var(--muted); text-decoration: none; padding: 6px 0; }
+nav.site a:hover, nav.site a[aria-current] { color: var(--ink); }
+
+.kicker { font: 500 12px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 10px; }
+h1 { font-size: clamp(34px, 7vw, 48px); line-height: 1.1; margin: 0 0 14px; font-weight: 700; }
+h2 { font-size: 26px; line-height: 1.25; margin: 46px 0 10px; font-weight: 700; }
+h3 { font-size: 19px; font-weight: 700; margin: 28px 0 4px; }
+.lede { color: var(--muted); font-size: 20px; margin: 0 0 10px; }
+.updated { font: 12px/1.5 var(--mono); color: var(--muted); margin: 0 0 26px; }
+p, li { margin: 0 0 12px; }
+ul { padding-left: 22px; }
+a { color: var(--pen); text-underline-offset: 2px; }
+strong { font-weight: 700; }
+
+/* One 3×3 box from the board: printed numbers in ink, the player's in pen. */
+.box3 { display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(3, 56px); border: 3px solid var(--ink); background: var(--surface); margin: 26px 0 8px; width: max-content; }
+.box3 span { display: grid; place-items: center; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-weight: 700; font-size: 26px; }
+.box3 span:nth-child(3n) { border-right: 0; }
+.box3 span:nth-child(n+7) { border-bottom: 0; }
+.box3 .pen { color: var(--pen); font: 400 30px/1 ui-rounded, -apple-system, "SF Pro Rounded", sans-serif; }
+.box3 .note { font: 11px/1.1 ui-rounded, -apple-system, sans-serif; color: var(--muted); font-weight: 400; letter-spacing: .1em; text-align: center; white-space: pre; }
+.caption { font: 12px/1.5 var(--mono); color: var(--muted); margin: 0 0 30px; }
+
+.sheet { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--pen); padding: 16px 18px; margin: 26px 0; }
+.sheet p:last-child { margin-bottom: 0; }
+.stamp { display: inline-block; font: 700 13px/1 var(--serif); letter-spacing: .14em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); padding: 6px 10px; transform: rotate(-4deg); margin: 4px 0 18px; }
+
+table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 16px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 12px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); border-bottom-color: var(--ink); }
+.scroll { overflow-x: auto; }
+.week { font: 13px/1.8 var(--mono); }
+
+footer.site { margin-top: 60px; padding-top: 14px; border-top: 1px solid var(--line); font: 12px/1.6 var(--mono); color: var(--muted); }
+footer.site a { color: var(--muted); }
